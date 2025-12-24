@@ -2,6 +2,9 @@
 
 A full-stack TypeScript application for creating interactive images with draggable triggers that can open links or modals.
 
+<img width="1427" height="875" alt="image" src="https://github.com/user-attachments/assets/3739bf2a-de1f-428f-9554-1507a87ddeb1" />
+
+
 ## Features
 
 - Upload images and create interactive hotspots
