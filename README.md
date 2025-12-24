@@ -24,6 +24,22 @@ A full-stack TypeScript application for creating interactive images with draggab
 - PostgreSQL database
 - Vite-Express for SSR integration
 
+**Android Terminal App**
+- Expo react native
+- [Find the app repo here](https://github.com/Benjythebee/authi-expo-react)
+
+## Design notes:
+
+I'm using vite and vite-express for probably the fastest development possible.
+It allows me to have a quick draft ready and get things going easily.
+
+For saving data I'm using postgres (locally) and I have a very simple table called "Interactives".
+Note that the table "interactives" has a "store_id" column which would then be the store_id as a foreign key. At the moment I'm just hardcoding "default_store" as a store_id.
+I have not indexed the table yet.
+
+A more realistic approach would be to have a table for linking EFTPOS serial number to specific store_id or brand_id and then on start of the app, fetch the appropriate data depending on a lot more than just store_id.
+
+
 ## Setup
 
 1. Install dependencies:
