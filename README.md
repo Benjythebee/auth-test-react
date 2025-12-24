@@ -29,6 +29,8 @@ A full-stack TypeScript application for creating interactive images with draggab
 1. Install dependencies:
 ```bash
 pnpm install
+#or
+npm install
 ```
 
 2. Set up PostgreSQL database and run migration:
@@ -37,6 +39,10 @@ pnpm install
 ```
 
 3. Configure environment variables in `.env`
+```
+#this is the only env you need;
+DATABASE_URL=<> 
+```
 
 4. Start development server:
 ```bash
@@ -59,4 +65,21 @@ src/
 ├── server/          # Express backend
 │   └── lib/         # Database and utilities
 └── common/          # Shared types and APIs
+```
+
+
+## AI disclaimer
+
+I've used AI to generate components or contexts that I think are super repetitive or time consuming.
+
+For example the following prompts:
+
+```sh
+PROMPT: generate a simple react context layout that handles my form information in form.tsx
+
+# Generated a simple context which I then modified
+```
+
+```sh
+PROMPT: Using tailwindcss and daisyUI, generate a simple UI split in two vertically, the left is a form and the right is a div with a strict ratio of height = 2.16 * width
 ```
