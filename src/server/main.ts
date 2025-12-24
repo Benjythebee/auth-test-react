@@ -145,6 +145,11 @@ app.post('/upload', upload.single('file'),async (req, res) => {
 
 app.use('/images', express.static(path.join(__dirname, 'uploads')));
 
+app.post("/log", express.json(), (req, res) => {
+  console.log('Client log:', req.body);
+  res.sendStatus(200);
+});
+
 app.get("/store/:storeId", async (req, res) => {
   if(!req.params.storeId){
     return res.status(400).send('No storeId provided');

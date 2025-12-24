@@ -16,32 +16,24 @@ const App: React.FC = () => {
     x: number;
     y: number;
   }) => {
-    // const parentRect = draggableRef.current?.parentElement?.getBoundingClientRect();
-    // const buttonSize = draggableRef.current?.getBoundingClientRect()
-    // console.log('parentRect data:', parentRect?.width, parentRect?.height);
-    // console.log('Button size:', buttonSize?.width, buttonSize?.height);
-    // if(!parentRect) return;
-    // if(!buttonSize) return;
-    // const draggedPosition = {
-    //   x:  data.x + buttonSize.width, //- (parentRect?.left || 0),
-    //   y: data.y + buttonSize.height //- (parentRect?.top || 0)
-    // }
 
-    // const cssFriendlyPosition = {
-    //   x: ((draggedPosition.x / parentRect.width) * 100).toFixed(2) + '%',
-    //   y: ((draggedPosition.y / parentRect.height) * 100).toFixed(2) + '%'
-    // }
   const node = data.node;
   const parent = node.offsetParent as HTMLElement;
-    const nodeRect = node.getBoundingClientRect();
-    const parentRect = parent.getBoundingClientRect();
+  const nodeRect = node.getBoundingClientRect();
+  const parentRect = parent.getBoundingClientRect();
 
+  // Data.x and Data.y are the pixel positions within the parent relative to the CENTER
+  // i.e x and y = 0 is the center of the parent element
+  
+  data.x = data.x + (parentRect.width / 2);
+  data.y = data.y + (parentRect.height / 2);
 
   const maxX = parentRect.width - nodeRect.width;
   const maxY = parentRect.height - nodeRect.height;
 
+
   const percentX = (data.x / maxX) * 100;
-  const percentY = (data.y / maxY) * 100;
+  const percentY = (data.y/ maxY) * 100;
 
   const position = {
     left: Math.min(100, Math.max(0, percentX)),
