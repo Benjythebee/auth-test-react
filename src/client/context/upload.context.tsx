@@ -19,7 +19,10 @@ interface UploadContextType {
 
 const UploadContext = createContext<UploadContextType>({
     uploadData: { file: null, imageUrl: null },
-    actionData: null,
+    actionData: {
+        type: 'modal',
+        content: { title: '', body: '' }
+    },
     triggerData: {
         type: 'button',
         position: { x: 0, y: 0 },
@@ -39,10 +42,13 @@ export function UploadProvider({ children }: { children: ReactNode }) {
             file: null,
             imageUrl: null,
         });
-    const [actionData, setActionDataState] = useState<ModalAction | LinkAction | null>(null);
+    const [actionData, setActionDataState] = useState<ModalAction | LinkAction | null>({
+        type: 'modal',
+        content: { title: '', body: '' }
+    });
     const [triggerData, setTriggerData] = useState<TriggerData>({
         type: 'button',
-        position: { x: 0, y: 0 },
+        position: { x: 50, y: 50 },
         scale: 1,
         label: 'Click me!'
     });
