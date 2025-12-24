@@ -72,8 +72,31 @@ export default function ImageForm() {
             setError('Action data is required');
             return;
         }
+        if(!triggerData) {
+            setError('Trigger data is required');
+            return;
+        }
         const formData =  new FormData();
         formData.append('file', uploadData.file!);
+
+        // Some very basic validation
+        if(actionData.type === 'link' && !actionData.url) {
+            setError('URL is required for link action');
+            return;
+        }
+        if(actionData.type === 'modal' && (!actionData.content?.title || !actionData.content?.body)) {
+            setError('Title and body are required for modal action');
+            return;
+        }
+        if(triggerData.type === 'button' && !triggerData.label) {
+            setError('Button label is required for button trigger');
+            return;
+        }
+        if(triggerData.position.x === undefined || triggerData.position.y === undefined) {
+            setError('Trigger position is required');
+            return;
+        }
+
         const dataToSubmit:UploadAPIType = ({
             type: actionData!.type,
             trigger:triggerData,
