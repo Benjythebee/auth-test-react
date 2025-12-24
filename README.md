@@ -99,3 +99,4 @@ PROMPT: generate a simple react context layout that handles my form information 
 ```sh
 PROMPT: Using tailwindcss and daisyUI, generate a simple UI split in two vertically, the left is a form and the right is a div with a strict ratio of height = 2.16 * width
 ```
+if you ask yourself why the ratio is "2.16", it's because I quickly looked up the ratio of a Samsung S22.
